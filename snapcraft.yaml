@@ -31,6 +31,7 @@ parts:
     source: https://gitlab.gnome.org/GNOME/gnome-tetravex.git
     source-type: git
     source-tag: '3.38.2'
+    parse-info: [usr/share/metainfo/org.gnome.Tetravex.appdata.xml]
     override-pull: |
       craftctl default
       craftctl set version=$(git describe --tags --abbrev=10)
