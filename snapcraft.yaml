@@ -46,5 +46,3 @@ parts:
       - --prefix=/usr
     prime:
       - -usr/lib/*/libgtk*
-    build-packages:
-      - libc6-dev
