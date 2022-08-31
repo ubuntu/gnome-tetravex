@@ -1,25 +1,5 @@
-diff --git a/data/meson.build b/data/meson.build
-index bb77248..b881e8a 100644
---- a/data/meson.build
-+++ b/data/meson.build
-@@ -34,7 +34,7 @@ endif
- 
- # Desktop file
- if get_option('build_gui')
--  desktop_file = i18n.merge_file ('desktop-file',
-+  desktop_file = i18n.merge_file (
-                            input: project_id + '.desktop.in',
-                           output: project_id + '.desktop',
-                          install: true,
-@@ -56,7 +56,7 @@ endif
- 
- # AppData file
- if get_option('build_gui')
--  appdata_file = i18n.merge_file ('appdata-file',
-+  appdata_file = i18n.merge_file (
-                            input: project_id + '.appdata.xml.in',
-                           output: project_id + '.appdata.xml',
-                          install: true,
+# Add three new languages and fix some translations
+
 diff --git a/help/LINGUAS b/help/LINGUAS
 index 8560de4..0091135 100644
 --- a/help/LINGUAS
@@ -9994,33 +9974,3 @@ index 3637b96..b177ca1 100644
  
  #~ msgid "org.gnome.Tetravex"
  #~ msgstr "org.gnome.Tetravex"
-diff --git a/src/score-overlay.vala b/src/score-overlay.vala
-index fbb55cc..9dfb5f5 100644
---- a/src/score-overlay.vala
-+++ b/src/score-overlay.vala
-@@ -38,10 +38,10 @@ private class ScoreOverlay : Grid
-     * * updating labels
-     \*/
- 
--    [GtkChild] private ScoreOverlayEntry score_0;
--    [GtkChild] private ScoreOverlayEntry score_1;
--    [GtkChild] private ScoreOverlayEntry score_2;
--    [GtkChild] private ScoreOverlayEntry score_3;
-+    [GtkChild] private unowned ScoreOverlayEntry score_0;
-+    [GtkChild] private unowned ScoreOverlayEntry score_1;
-+    [GtkChild] private unowned ScoreOverlayEntry score_2;
-+    [GtkChild] private unowned ScoreOverlayEntry score_3;
- 
-     internal void set_score (uint8          puzzle_size,
-                              uint /* [1[ */ position,
-@@ -184,8 +184,8 @@ private class ScoreOverlay : Grid
- [GtkTemplate (ui = "/org/gnome/Tetravex/score-overlay-entry.ui")]
- private class ScoreOverlayEntry : Grid
- {
--    [GtkChild] private Label place_label;
--    [GtkChild] private Label value_label;
-+    [GtkChild] private unowned Label place_label;
-+    [GtkChild] private unowned Label value_label;
- 
-     internal void set_place_label (string label)
-     {

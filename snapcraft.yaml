@@ -34,7 +34,9 @@ parts:
     parse-info: [usr/share/metainfo/org.gnome.Tetravex.appdata.xml]
     override-pull: |
       craftctl default
-      patch -p1 < $CRAFT_PROJECT_DIR/patches/patch1.diff
+      for i in $CRAFT_PROJECT_DIR/patches/*.diff; do
+        patch -p1 < $i
+      done
     override-build: |
       sed -i.bak -e 's|Icon=org.gnome.Tetravex$|Icon=${SNAP}/meta/gui/org.gnome.Tetravex.svg|g' $SNAPCRAFT_PART_SRC/data/org.gnome.Tetravex.desktop.in
       craftctl default
