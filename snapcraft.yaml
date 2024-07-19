@@ -9,9 +9,10 @@ description: |
 
   You can make the game easier or harder by changing the size of the board.
 
+license: GPL-3.0+
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
-base: core22
+base: core24
 
 slots:
   # for GtkApplication registration
